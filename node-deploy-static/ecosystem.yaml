@@ -17,8 +17,6 @@ deploy:
     # 配置文件会自动从git上面拉取静态网站代码到此路径
     path: /www/node-deploy-static/production
 
-    ssh_options: StrictHostKeyChecking=no
-    pre-deploy: git fetch --all
     post-deploy: 'sudo npm i && pm2 startOrRestart ecosystem.yaml --env production'
     env:
       NODE_ENV: production
